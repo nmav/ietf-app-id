@@ -11,7 +11,7 @@
 ]>
 <?rfc toc="no"?>
 <?rfc symrefs="yes"?>
-<rfc ipr="trust200902" category="info" docName="draft-mavrogiannopouls-app-id-00">
+<rfc ipr="trust200902" category="info" docName="draft-mavrogiannopoulos-app-id-00">
   <front>
     <title abbrev="A TLS application-specific identifier">A TLS application-specific identifier</title>
     <author initials="N." surname="Mavrogiannopoulos" fullname="Nikos Mavrogiannopoulos">
