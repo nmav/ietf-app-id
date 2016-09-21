@@ -9,17 +9,11 @@
 <!ENTITY RFC4122 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4122.xml">
 <!ENTITY DTLS SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6347.xml">
 ]>
-<?rfc toc="yes"?>
+<?rfc toc="no"?>
 <?rfc symrefs="yes"?>
 <rfc ipr="trust200902" updates="5246,6347" category="std" docName="draft-mavrogiannopouls-app-id-00">
   <front>
     <title abbrev="A TLS application-specific identifier">A TLS application-specific identifier</title>
-    <author initials="D." surname="Woodhouse" fullname="David Woodhouse">
-      <organization>Intel</organization>
-      <address>
-        <email>dwmw2@infradead.org</email>
-      </address>
-    </author>
     <author initials="N." surname="Mavrogiannopoulos" fullname="Nikos Mavrogiannopoulos">
       <organization abbrev="Red Hat">Red Hat, Inc.</organization>
       <address>
@@ -30,6 +24,18 @@
           <country>Czech Republic</country>
         </postal>
         <email>nmav@redhat.com</email>
+      </address>
+    </author>
+    <author initials="D." surname="Woodhouse" fullname="David Woodhouse">
+      <organization>Intel</organization>
+      <address>
+        <postal>
+          <street/>
+          <city/>
+          <region/>
+          <country>UK</country>
+        </postal>
+        <email>dwmw2@infradead.org</email>
       </address>
     </author>
     <date month="September" year="2016"/>
@@ -53,11 +59,11 @@ purposes.
   <middle>
     <section anchor="intro" title="Introduction">
       <t>
-In certain applications, a TLS or DTLS session follows-up a previous communication which
-has already assigned the user to a particular server from a pool or a particular
-system process. In these cases it is desirable for the follow-up TLS or DTLS session
-to be forwarded by a routing process or system to the initial handler of the session,
-early, prior to any TLS negotiation.</t>
+In certain applications, a TLS or DTLS session follows-up a previously established
+communication channel which has already assigned the user to a particular server
+from a pool or a particular system process. In these cases it is desirable for the
+follow-up sessions to be forwarded by a routing process or system to the initial
+handler, early, prior to any TLS negotiation.</t>
 <t>
 That can be implemented with an application-specific identifier which will be
 included by the client on its initial Client Hello message. The routing processor
@@ -83,7 +89,8 @@ identifiers to the Client Hello message.
         <section anchor="appext" title="TLS Extension: Application-specific identifier">
 <t>
 The TLS application-specific identifier is an arbitrary byte sequence encoded in
-the Client Hello as an extension.
+the Client Hello as an extension. It is applicable to both the TLS and DTLS protocols
+<xref target="RFC5246"/><xref target="RFC6347"/>.
 </t>
 
       <section anchor="extnegotiation" title="Extension Negotiation">
@@ -98,14 +105,14 @@ the Client Hello as an extension.
         </t>
 
         <t>
-   This extension data are of the following format.
+   This extension data have the following format.
     </t>
               <figure><artwork><![CDATA[
         opaque ApplicationID<1..2^8-1>;
 	       ]]></artwork></figure>
     <t>
-    The contents and size of ApplicationID are application-specific. They may be a 32-bit identifier,
-    an UUID <xref target="RFC4122"/>, or whatever value is defined by the application profile or policy.
+    The contents and size of ApplicationID are application-specific. Examples are, a 32-bit identifier,
+    an 128-bit UUID <xref target="RFC4122"/>, or a value defined by the application profile or policy.
     </t>
         </section>
 
@@ -115,8 +122,7 @@ the Client Hello as an extension.
 <t>
 Applications and application profiles must ensure that they do not reveal sensitive
 data, or data that could compromise the TLS protocol's properties through the ApplicationID
-value. It is RECOMMENDED to be used with random identifiers
-as in <xref target="RFC4122"/>.
+value.
 </t>
 </section>
     <section anchor="IANA" title="IANA Considerations">
@@ -140,15 +146,14 @@ as in <xref target="RFC4122"/>.
 	<!--?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml"?-->
 	&RFC2119;
 
-	<!--?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.4122.xml"?-->
-	&RFC4122;
 	
    	  </references>
-    <!--
    	  <references title="Informative References">
+
+	<!--?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.4122.xml"?-->
+	&RFC4122;
          
    	  </references>
-   -->
       <section title="Acknowledgements">
       <t>
       </t>
