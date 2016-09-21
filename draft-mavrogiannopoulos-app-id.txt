@@ -4,9 +4,9 @@
 
 Network Working Group                               N. Mavrogiannopoulos
 Internet-Draft                                                   Red Hat
-Updates: 5246,6347 (if approved)                            D. Woodhouse
-Intended status: Standards Track                                   Intel
-Expires: March 25, 2017                               September 21, 2016
+Intended status: Informational                              D. Woodhouse
+Expires: March 25, 2017                                            Intel
+                                                      September 21, 2016
 
 
                  A TLS application-specific identifier
