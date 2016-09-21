@@ -8,5 +8,5 @@ draft-mavrogiannopoulos-app-id.txt: draft-mavrogiannopoulos-app-id.xml
 	xml2rfc $<
 
 draft-mavrogiannopoulos-app-id.html: draft-mavrogiannopoulos-app-id.xml
-	xml2rfc $< $@
+	xml2rfc --html $<
 
