@@ -10,7 +10,7 @@ Expires: March 25, 2017                                            Intel
 
 
                  A TLS application-specific identifier
-                    draft-mavrogiannopouls-app-id-00
+                   draft-mavrogiannopoulos-app-id-00
 
 Abstract
 
